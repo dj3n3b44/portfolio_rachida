@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rchdaa Design - Portfolio</title>
+    
+    <!-- Importation des typographies de la charte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Vollkorn:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lien vers ton fichier CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SECTION 1 : L'ACCUEIL AVEC VIDÉO -->
+    <section id="accueil" class="fullscreen">
+        
+        <!-- La vidéo en fond. Mets ta vidéo dans le dossier assets et renomme-la bg-video.mp4 -->
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="assets/bg-video.mp4" type="video/mp4">
+        </video>
+        
+        <div class="overlay"></div>
+
+        <div class="contenu-accueil">
+            <h1 class="logo-texte">Rchdaa Design</h1>
+            <button id="btn-decouvrir" onclick="allerAuxProfils()">Découvrir portfolio</button>
+        </div>
+    </section>
+
+    <!-- SECTION 2 : LE CHOIX DES PROFILS (On la cache pour l'instant) -->
+    <section id="choix-profil" class="fullscreen hidden">
+        <!-- On remplira cette partie juste après ! -->
+    </section>
+
+    <!-- Lien vers ton fichier JS (toujours à la fin du body) -->
+    <script src="script.js"></script>
+</body>
+</html>
