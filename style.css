@@ -14,6 +14,31 @@ body, html {
   background-color: var(--blanc-casse);
 }
 
+/* --- TYPOGRAPHIE ET TITRES --- */
+
+/* Configuration de tous les gros titres */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Vollkorn', serif;
+  font-weight: 600;
+  color: var(--bleu-nuit);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Configuration du texte courant */
+p, li, a {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--bleu-nuit);
+}
+
+/* Classe spéciale pour les citations ou le slogan (accent) */
+.texte-accent {
+  font-family: 'Vollkorn', serif;
+  font-style: italic;
+}
+
 /* --- CLASSES UTILITAIRES --- */
 .fullscreen {
   position: relative;
@@ -60,6 +85,11 @@ body, html {
   z-index: 3;
 }
 
+/* On force le logo de l'accueil à rester clair sur la vidéo */
+.contenu-accueil .logo-texte {
+  color: var(--creme);
+}
+
 .logo-texte {
   font-family: 'Vollkorn', serif;
   font-size: 4rem;
@@ -83,4 +113,163 @@ body, html {
 #btn-decouvrir:hover {
   background-color: var(--creme);
   color: var(--bleu-nuit);
+}
+
+/* --- SECTION CHOIX PROFIL --- */
+.conteneur-profils {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.conteneur-profils h2 {
+  text-align: center;
+  font-size: 3.2rem;
+  margin-bottom: 4rem;
+  color: var(--bleu-nuit);
+}
+
+.grille-boutons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+/* Style des cartes profil */
+.carte-profil {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 260px;
+  height: 340px;
+  border: 1px solid var(--bleu-nuit);
+  border-radius: 8px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  padding: 2rem;
+  text-align: center;
+}
+
+.carte-profil h3 {
+  font-family: 'Vollkorn', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  color: var(--bleu-nuit);
+  transition: color 0.4s ease;
+}
+
+.carte-profil p {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.05rem;
+  color: var(--bleu-nuit);
+  opacity: 0.85;
+  transition: color 0.4s ease;
+}
+
+/* Animation et changement de couleur au survol */
+.carte-profil:hover {
+  background-color: var(--bleu-nuit);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(10, 17, 40, 0.15);
+}
+
+.carte-profil:hover h3,
+.carte-profil:hover p {
+  color: var(--creme);
+}
+
+/* --- LA GALERIE PORTFOLIO --- */
+.grille-projets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.carte-galerie {
+  width: 300px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.carte-galerie:hover {
+  transform: scale(1.02);
+}
+
+.image-apercu {
+  background-color: var(--beige-doux);
+  height: 200px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bleu-nuit);
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.carte-galerie h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* --- LE MENU DES ONGLETS --- */
+.menu-onglets {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid rgba(10, 17, 40, 0.2); /* Une ligne discrète */
+  padding-bottom: 10px;
+}
+
+.onglet {
+  background: none;
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1.2rem;
+  color: var(--bleu-nuit);
+  cursor: pointer;
+  opacity: 0.5; /* Les onglets inactifs sont un peu transparents */
+  transition: all 0.3s ease;
+  padding: 10px 5px;
+}
+
+.onglet:hover {
+  opacity: 1;
+}
+
+/* Le style de l'onglet sélectionné */
+.onglet.actif {
+  opacity: 1;
+  font-weight: 600;
+  border-bottom: 3px solid var(--bleu-nuit); /* La grosse ligne bleue sous le texte */
+}
+
+/* --- GESTION DE L'AFFICHAGE DES CATEGORIES --- */
+.categorie-portfolio {
+  display: none; /* On cache tout par défaut */
+}
+
+.categorie-portfolio.active {
+  display: block; /* On affiche uniquement la catégorie avec la classe 'active' */
+  animation: apparitionFondu 0.5s ease; /* Un petit effet d'apparition doux */
+}
+
+/* Petite animation bonus pour que ce soit fluide */
+@keyframes apparitionFondu {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

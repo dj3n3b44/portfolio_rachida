@@ -18,7 +18,6 @@
     <!-- SECTION 1 : L'ACCUEIL AVEC VIDÉO -->
     <section id="accueil" class="fullscreen">
         
-        <!-- La vidéo en fond. Mets ta vidéo dans le dossier assets et renomme-la bg-video.mp4 -->
         <video autoplay muted loop playsinline class="bg-video">
             <source src="assets/bg-video.mp4" type="video/mp4">
         </video>
@@ -31,10 +30,120 @@
         </div>
     </section>
 
-    <!-- SECTION 2 : LE CHOIX DES PROFILS (On la cache pour l'instant) -->
+    <!-- SECTION 2 : LE CHOIX DES PROFILS -->
     <section id="choix-profil" class="fullscreen hidden">
-        <!-- On remplira cette partie juste après ! -->
+        <div class="conteneur-profils">
+            <h2>Bienvenue, qui êtes-vous ?</h2>
+            
+            <div class="grille-boutons">
+                <!-- Carte Recruteur -->
+                <div class="carte-profil" onclick="choisirProfil('recruteur')">
+                    <h3>Recruteur</h3>
+                    <p>Parcours, méthodes de travail et CV détaillé.</p>
+                </div>
+                
+                <!-- Carte Client -->
+                <div class="carte-profil" onclick="choisirProfil('client')">
+                    <h3>Client</h3>
+                    <p>Prestations, tarifs et études de cas sur-mesure.</p>
+                </div>
+                
+                <!-- Carte Visiteur -->
+                <div class="carte-profil" onclick="choisirProfil('visiteur')">
+                    <h3>Visiteur</h3>
+                    <p>Exploration libre de l'univers et des créations.</p>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- SECTION 3 : LE PORTFOLIO (Caché au départ) -->
+    <section id="portfolio-principal" class="hidden">
+        
+        <!-- LE MENU DES ONGLETS -->
+        <div class="menu-onglets">
+            <!-- L'onglet actif par défaut est Projets scolaires -->
+            <button class="onglet actif" onclick="changerOnglet('projets-scolaires')">Projets scolaires</button>
+            <button class="onglet" onclick="changerOnglet('stages')">Stages</button>
+            <button class="onglet" onclick="changerOnglet('projets-clients')">Projets clients</button>
+            <button class="onglet" onclick="changerOnglet('projets-persos')">Projets persos</button>
+        </div>
+
+        <!-- Catégorie : Projets Scolaires (Visible par défaut avec la classe 'active') -->
+        <div class="categorie-portfolio active" id="projets-scolaires">
+            <div class="grille-projets">
+                <!-- On mettra les cartes BTS 1ère et 2ème année ici -->
+            </div>
+        </div>
+
+        <!-- Catégorie : Stages -->
+        <div class="categorie-portfolio" id="stages">
+            <div class="grille-projets">
+                <!-- Cartes Numalya et le projet mystère (?) -->
+            </div>
+        </div>
+
+        <!-- Catégorie : Projets Clients -->
+        <div class="categorie-portfolio" id="projets-clients">
+            <div class="grille-projets">
+                <!-- CARTE : SOLEYADOM -->
+                <article class="carte-galerie" onclick="ouvrirModal('SOLEYADOM')">
+                    <div class="image-apercu">
+                        <!-- L'image du logo pour la couverture -->
+                        <img src="assets/soleyadom-logo.png" alt="Logo SOLEYADOM" class="img-couverture">
+                    </div>
+                    <h3>SOLEYADOM</h3>
+                </article>
+            </div>
+        </div>
+
+        <!-- Catégorie : Projets Persos -->
+        <div class="categorie-portfolio" id="projets-persos">
+            <div class="grille-projets">
+                <!-- Cirtavia et Hidden souls -->
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 4 : LA FENÊTRE MODALE -->
+    <div id="fenetre-modale" class="modale hidden">
+        <div class="contenu-modale">
+            <!-- Le bouton pour fermer (la petite croix) -->
+            <span class="fermer-modale" onclick="fermerModal()">×</span>
+            
+            <h2 id="titre-modale">SOLEYADOM</h2>
+            
+            <div class="image-detail">
+                <!-- L'image en grand format viendra ici -->
+            </div>
+            
+            <p class="texte-courant">Création d'une identité visuelle complète et déclinaison sur de multiples supports de communication, imprimés et digitaux.</p>
+            
+            <!-- Les infos conditionnelles pour le Client -->
+            <div class="info-client">
+                <p class="texte-courant">Livrables du projet :</p>
+                <ul>
+                    <li>Identité visuelle : Création du nouveau logo.</li>
+                    <li>Supports Print : 1 carte de visite et 2 flyers.</li>
+                    <li>Plaquettes commerciales : Plaquettes "Pourquoi choisir Soleyadom", offres B2B Ménage, et présentation aide à domicile.</li>
+                    <li>Diaporamas : Présentation de la charte graphique et du projet newsletter.</li>
+                    <li>Réseaux Sociaux : 11 contenus (vidéo "La patience", posts LinkedIn, affiches, et séries éditoriales).</li>
+                </ul>
+            </div>
+            
+            <!-- Les infos conditionnelles pour le Recruteur -->
+            <div class="info-recruteur">
+                <p class="texte-courant">Compétences appliquées :</p>
+                <ul>
+                    <li>Branding : Conception de logo et présentation de charte graphique.</li>
+                    <li>Édition et Print : Mise en page de 4 plaquettes commerciales, cartes de visite et flyers.</li>
+                    <li>Création de contenu : Formats digitaux variés, storytelling (Épisode humain en mots) et montage vidéo.</li>
+                    <li>Stratégie de communication : Adaptation du discours visuel pour le B2B et le B2C.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <!-- Lien vers ton fichier JS (toujours à la fin du body) -->
     <script src="script.js"></script>
