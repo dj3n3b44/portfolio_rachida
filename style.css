@@ -1,9 +1,16 @@
-/* --- VARIABLES DE LA CHARTE GRAPHIQUE --- */
+/* --- VARIABLES DE LA CHARTE GRAPHIQUE (alignées sur rchdaa-design.fr) --- */
 :root {
   --bleu-nuit: #0A1128;
   --creme: #F5F1EA;
-  --beige-doux: #EBDFD3;
+  --beige-doux: #E8DFD3;
   --blanc-casse: #E0E1DD;
+
+  --surface: #EDE5D9;
+  --carte: #FBF8F3;
+  --texte-doux: #4B5169;
+  --trait: rgba(10, 17, 40, 0.14);
+  --trait-fort: rgba(10, 17, 40, 0.32);
+  --ombre: 0 1px 0 rgba(10, 17, 40, 0.04), 0 12px 32px -18px rgba(10, 17, 40, 0.28);
 }
 
 /* --- RESET DE BASE --- */
@@ -11,7 +18,7 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Nunito Sans', sans-serif;
-  background-color: var(--blanc-casse);
+  background-color: var(--creme);
 }
 
 /* --- TYPOGRAPHIE ET TITRES --- */
@@ -180,7 +187,7 @@ p, li, a {
 .carte-profil:hover {
   background-color: var(--bleu-nuit);
   transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(10, 17, 40, 0.15);
+  box-shadow: var(--ombre);
 }
 
 .carte-profil:hover h3,
@@ -208,7 +215,7 @@ p, li, a {
 }
 
 .image-apercu {
-  background-color: var(--beige-doux);
+  background-color: var(--surface);
   height: 200px;
   border-radius: 8px;
   display: flex;
@@ -231,7 +238,7 @@ p, li, a {
   gap: 3rem;
   margin-bottom: 4rem;
   margin-top: 2rem;
-  border-bottom: 1px solid rgba(10, 17, 40, 0.2); /* Une ligne discrète */
+  border-bottom: 1px solid var(--trait); /* Une ligne discrète */
   padding-bottom: 10px;
 }
 
@@ -320,8 +327,9 @@ html {
   justify-content: space-between;
   gap: 2rem;
   padding: 1.2rem 5%;
-  background-color: var(--creme);
-  border-bottom: 1px solid rgba(10, 17, 40, 0.1);
+  background-color: rgba(245, 241, 234, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--trait);
 }
 
 .nav-logo {
@@ -400,7 +408,7 @@ html {
   font-size: 0.85rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  opacity: 0.6;
+  color: var(--texte-doux);
   margin: 0;
 }
 
@@ -438,7 +446,8 @@ html {
 }
 
 .carte-service {
-  background-color: var(--beige-doux);
+  background-color: var(--surface);
+  border: 1px solid var(--trait);
   border-radius: 8px;
   padding: 2rem;
 }
@@ -463,7 +472,7 @@ html {
 .valeur-ajoutee {
   margin-top: 2.5rem;
   padding: 1.5rem 2rem;
-  background-color: var(--creme);
+  background-color: var(--beige-doux);
   border-left: 3px solid var(--bleu-nuit);
   border-radius: 4px;
 }
@@ -486,7 +495,7 @@ body.vue-recruteur .btn-telecharger {
   font-weight: 600;
   border-radius: 50px;
   text-decoration: none;
-  box-shadow: 0 8px 20px rgba(10, 17, 40, 0.15);
+  box-shadow: var(--ombre);
   transition: transform 0.3s ease;
 }
 
@@ -509,7 +518,7 @@ body.vue-recruteur .btn-telecharger {
   bottom: 0;
   left: 50%;
   width: 2px;
-  background-color: rgba(10, 17, 40, 0.2);
+  background-color: var(--trait-fort);
   transform: translateX(-50%);
 }
 
@@ -534,7 +543,7 @@ body.vue-recruteur .btn-telecharger {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: var(--blanc-casse);
+  background-color: var(--creme);
   border: 2px solid var(--bleu-nuit);
   z-index: 1;
   transition: all 0.3s ease;
@@ -551,35 +560,36 @@ body.vue-recruteur .btn-telecharger {
 }
 
 .carte-etape {
-  background-color: var(--creme);
-  border: 1px solid transparent;
+  background-color: var(--carte);
+  border: 1px solid var(--trait);
   border-radius: 8px;
   padding: 1.5rem 1.8rem;
   transition: all 0.3s ease;
 }
 
 .etape.formation .carte-etape {
-  background-color: var(--beige-doux);
+  background-color: var(--surface);
 }
 
 .etape:hover .carte-etape {
   transform: translateY(-4px);
-  border-color: rgba(10, 17, 40, 0.2);
-  box-shadow: 0 10px 24px rgba(10, 17, 40, 0.1);
+  border-color: var(--trait-fort);
+  box-shadow: var(--ombre);
 }
 
 .etape-date {
   font-size: 0.85rem;
   font-weight: 600;
-  opacity: 0.7;
+  color: var(--texte-doux);
 }
 
 .etape-type {
   float: right;
   font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border: 1px solid rgba(10, 17, 40, 0.3);
+  background-color: var(--beige-doux);
   border-radius: 50px;
   padding: 2px 10px;
 }
@@ -591,7 +601,7 @@ body.vue-recruteur .btn-telecharger {
 
 .etape-lieu {
   margin: 0;
-  opacity: 0.8;
+  color: var(--texte-doux);
 }
 
 .carte-etape details {
@@ -636,8 +646,7 @@ body.vue-recruteur .btn-telecharger {
 }
 
 .liste-competences li {
-  background-color: var(--creme);
-  border: 1px solid rgba(10, 17, 40, 0.2);
+  background-color: var(--beige-doux);
   border-radius: 50px;
   padding: 5px 14px;
   font-size: 0.9rem;
@@ -652,10 +661,11 @@ body.vue-recruteur .btn-telecharger {
 }
 
 .carte-tarif {
-  background-color: var(--creme);
-  border: 1px solid rgba(10, 17, 40, 0.15);
+  background-color: var(--carte);
+  border: 1px solid var(--trait);
   border-radius: 8px;
   padding: 2rem;
+  box-shadow: var(--ombre);
 }
 
 .carte-tarif h3 {
@@ -667,7 +677,7 @@ body.vue-recruteur .btn-telecharger {
   font-weight: 600;
   margin: 0 0 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(10, 17, 40, 0.15);
+  border-bottom: 1px solid var(--trait);
 }
 
 .carte-tarif ul {
@@ -678,7 +688,8 @@ body.vue-recruteur .btn-telecharger {
 /* --- CONTACT --- */
 .contact {
   text-align: center;
-  background-color: var(--beige-doux);
+  background-color: var(--creme);
+  border-top: 1px solid var(--trait);
   padding: 5rem 5%;
 }
 
@@ -781,6 +792,7 @@ body.vue-recruteur .btn-telecharger {
   padding: 2.5rem 3rem;
   background-color: var(--creme);
   border-radius: 12px;
+  box-shadow: var(--ombre);
   animation: apparitionFondu 0.3s ease;
 }
 
@@ -806,7 +818,7 @@ body.vue-recruteur .btn-telecharger {
   justify-content: center;
   height: 400px;
   margin: 1.5rem 0;
-  background-color: var(--beige-doux);
+  background-color: var(--surface);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -825,15 +837,16 @@ body.vue-recruteur .btn-telecharger {
   height: 40px;
   border: none;
   border-radius: 50%;
-  background-color: var(--creme);
+  background-color: var(--carte);
   color: var(--bleu-nuit);
   font-size: 1.5rem;
   cursor: pointer;
+  box-shadow: var(--ombre);
   transition: background-color 0.3s ease;
 }
 
 .fleche:hover {
-  background-color: var(--blanc-casse);
+  background-color: var(--beige-doux);
 }
 
 .fleche-gauche {
