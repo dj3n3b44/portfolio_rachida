@@ -223,3 +223,30 @@ document.addEventListener('keydown', function(e) {
         fermerModal();
     }
 });
+
+// 6. Mode sombre (même fonctionnement que rchdaa-design.fr)
+function themeActuel() {
+    let theme = document.documentElement.getAttribute('data-theme');
+    if (theme) {
+        return theme;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function changerTheme() {
+    let suivant = themeActuel() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', suivant);
+    try {
+        localStorage.setItem('theme', suivant);
+    } catch (e) {}
+    afficherBoutonTheme();
+}
+
+function afficherBoutonTheme() {
+    let sombre = themeActuel() === 'dark';
+    document.querySelector('.texte-theme').innerText = sombre ? 'Clair' : 'Foncé';
+    document.getElementById('btn-theme').setAttribute('aria-label', sombre ? 'Passer en mode clair' : 'Passer en mode foncé');
+}
+
+afficherBoutonTheme();
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', afficherBoutonTheme);

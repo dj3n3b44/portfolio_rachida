@@ -5,12 +5,51 @@
   --beige-doux: #E8DFD3;
   --blanc-casse: #E0E1DD;
 
+  /* Mode clair : papier crème, encre bleu nuit */
+  --fond: #F5F1EA;
   --surface: #EDE5D9;
   --carte: #FBF8F3;
+  --texte: #0A1128;
   --texte-doux: #4B5169;
+  --doux: #E8DFD3;
   --trait: rgba(10, 17, 40, 0.14);
   --trait-fort: rgba(10, 17, 40, 0.32);
+  --btn: #0A1128;
+  --sur-btn: #F5F1EA;
   --ombre: 0 1px 0 rgba(10, 17, 40, 0.04), 0 12px 32px -18px rgba(10, 17, 40, 0.28);
+}
+
+/* Mode sombre : nuit bleue, texte crème (suit le réglage de l'appareil, sauf choix manuel) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fond: #0A1128;
+    --surface: #111A39;
+    --carte: #16214A;
+    --texte: #F5F1EA;
+    --texte-doux: #B8BBC4;
+    --doux: #1C2852;
+    --trait: rgba(224, 225, 221, 0.13);
+    --trait-fort: rgba(224, 225, 221, 0.34);
+    --btn: #F5F1EA;
+    --sur-btn: #0A1128;
+    --ombre: 0 1px 0 rgba(0, 0, 0, 0.2), 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --fond: #0A1128;
+  --surface: #111A39;
+  --carte: #16214A;
+  --texte: #F5F1EA;
+  --texte-doux: #B8BBC4;
+  --doux: #1C2852;
+  --trait: rgba(224, 225, 221, 0.13);
+  --trait-fort: rgba(224, 225, 221, 0.34);
+  --btn: #F5F1EA;
+  --sur-btn: #0A1128;
+  --ombre: 0 1px 0 rgba(0, 0, 0, 0.2), 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+  color-scheme: dark;
 }
 
 /* --- RESET DE BASE --- */
@@ -18,7 +57,8 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Nunito Sans', sans-serif;
-  background-color: var(--creme);
+  background-color: var(--fond);
+  transition: background-color 0.35s ease;
 }
 
 /* --- TYPOGRAPHIE ET TITRES --- */
@@ -27,7 +67,7 @@ body, html {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Vollkorn', serif;
   font-weight: 600;
-  color: var(--bleu-nuit);
+  color: var(--texte);
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -37,7 +77,7 @@ p, li, a {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  color: var(--bleu-nuit);
+  color: var(--texte);
 }
 
 /* Classe spéciale pour les citations ou le slogan (accent) */
@@ -137,7 +177,7 @@ p, li, a {
   text-align: center;
   font-size: 3.2rem;
   margin-bottom: 4rem;
-  color: var(--bleu-nuit);
+  color: var(--texte);
 }
 
 .grille-boutons {
@@ -157,7 +197,7 @@ p, li, a {
   align-items: center;
   width: 260px;
   height: 340px;
-  border: 1px solid var(--bleu-nuit);
+  border: 1px solid var(--texte);
   border-radius: 8px;
   background-color: transparent;
   cursor: pointer;
@@ -171,28 +211,28 @@ p, li, a {
   font-size: 2rem;
   margin-bottom: 1rem;
   margin-top: 0;
-  color: var(--bleu-nuit);
+  color: var(--texte);
   transition: color 0.4s ease;
 }
 
 .carte-profil p {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1.05rem;
-  color: var(--bleu-nuit);
+  color: var(--texte);
   opacity: 0.85;
   transition: color 0.4s ease;
 }
 
 /* Animation et changement de couleur au survol */
 .carte-profil:hover {
-  background-color: var(--bleu-nuit);
+  background-color: var(--btn);
   transform: translateY(-8px);
   box-shadow: var(--ombre);
 }
 
 .carte-profil:hover h3,
 .carte-profil:hover p {
-  color: var(--creme);
+  color: var(--sur-btn);
 }
 
 /* --- LA GALERIE PORTFOLIO --- */
@@ -221,7 +261,7 @@ p, li, a {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--bleu-nuit);
+  color: var(--texte);
   font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -247,7 +287,7 @@ p, li, a {
   border: none;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1.2rem;
-  color: var(--bleu-nuit);
+  color: var(--texte);
   cursor: pointer;
   opacity: 0.5; /* Les onglets inactifs sont un peu transparents */
   transition: all 0.3s ease;
@@ -262,7 +302,7 @@ p, li, a {
 .onglet.actif {
   opacity: 1;
   font-weight: 600;
-  border-bottom: 3px solid var(--bleu-nuit); /* La grosse ligne bleue sous le texte */
+  border-bottom: 3px solid var(--texte); /* La grosse ligne bleue sous le texte */
 }
 
 /* --- GESTION DE L'AFFICHAGE DES CATEGORIES --- */
@@ -327,7 +367,7 @@ html {
   justify-content: space-between;
   gap: 2rem;
   padding: 1.2rem 5%;
-  background-color: rgba(245, 241, 234, 0.92);
+  background-color: color-mix(in srgb, var(--fond) 92%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--trait);
 }
@@ -336,7 +376,7 @@ html {
   font-family: 'Vollkorn', serif;
   font-weight: 600;
   font-size: 1.4rem;
-  color: var(--bleu-nuit);
+  color: var(--texte);
 }
 
 .nav-liens {
@@ -350,7 +390,7 @@ html {
 .lien-nav {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 1rem;
-  color: var(--bleu-nuit);
+  color: var(--texte);
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
@@ -367,15 +407,15 @@ html {
 .lien-nav.actif {
   opacity: 1;
   font-weight: 600;
-  border-bottom-color: var(--bleu-nuit);
+  border-bottom-color: var(--texte);
 }
 
 .btn-changer-profil {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 0.9rem;
-  color: var(--bleu-nuit);
+  color: var(--texte);
   background: none;
-  border: 1px solid var(--bleu-nuit);
+  border: 1px solid var(--texte);
   border-radius: 50px;
   padding: 8px 20px;
   cursor: pointer;
@@ -383,8 +423,8 @@ html {
 }
 
 .btn-changer-profil:hover {
-  background-color: var(--bleu-nuit);
-  color: var(--creme);
+  background-color: var(--btn);
+  color: var(--sur-btn);
 }
 
 /* --- ÉLÉMENTS COMMUNS --- */
@@ -421,8 +461,8 @@ html {
   display: inline-block;
   margin-top: 3rem;
   padding: 12px 35px;
-  background-color: var(--bleu-nuit);
-  color: var(--creme);
+  background-color: var(--btn);
+  color: var(--sur-btn);
   border-radius: 50px;
   text-decoration: none;
   transition: opacity 0.3s ease;
@@ -472,8 +512,8 @@ html {
 .valeur-ajoutee {
   margin-top: 2.5rem;
   padding: 1.5rem 2rem;
-  background-color: var(--beige-doux);
-  border-left: 3px solid var(--bleu-nuit);
+  background-color: var(--doux);
+  border-left: 3px solid var(--texte);
   border-radius: 4px;
 }
 
@@ -489,8 +529,8 @@ body.vue-recruteur .btn-telecharger {
 .btn-telecharger {
   margin: 2.5rem 0 1rem;
   padding: 16px 40px;
-  background-color: var(--bleu-nuit);
-  color: var(--creme);
+  background-color: var(--btn);
+  color: var(--sur-btn);
   font-size: 1.1rem;
   font-weight: 600;
   border-radius: 50px;
@@ -543,8 +583,8 @@ body.vue-recruteur .btn-telecharger {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: var(--creme);
-  border: 2px solid var(--bleu-nuit);
+  background-color: var(--fond);
+  border: 2px solid var(--texte);
   z-index: 1;
   transition: all 0.3s ease;
 }
@@ -555,7 +595,7 @@ body.vue-recruteur .btn-telecharger {
 }
 
 .etape:hover::before {
-  background-color: var(--bleu-nuit);
+  background-color: var(--btn);
   transform: scale(1.3);
 }
 
@@ -589,7 +629,7 @@ body.vue-recruteur .btn-telecharger {
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  background-color: var(--beige-doux);
+  background-color: var(--doux);
   border-radius: 50px;
   padding: 2px 10px;
 }
@@ -646,7 +686,7 @@ body.vue-recruteur .btn-telecharger {
 }
 
 .liste-competences li {
-  background-color: var(--beige-doux);
+  background-color: var(--doux);
   border-radius: 50px;
   padding: 5px 14px;
   font-size: 0.9rem;
@@ -688,7 +728,7 @@ body.vue-recruteur .btn-telecharger {
 /* --- CONTACT --- */
 .contact {
   text-align: center;
-  background-color: var(--creme);
+  background-color: var(--fond);
   border-top: 1px solid var(--trait);
   padding: 5rem 5%;
 }
@@ -713,7 +753,7 @@ body.vue-recruteur .btn-telecharger {
 }
 
 .liens-reseaux a:hover {
-  border-bottom-color: var(--bleu-nuit);
+  border-bottom-color: var(--texte);
 }
 
 /* --- MOBILE --- */
@@ -790,7 +830,7 @@ body.vue-recruteur .btn-telecharger {
   max-height: 90vh;
   overflow-y: auto;
   padding: 2.5rem 3rem;
-  background-color: var(--creme);
+  background-color: var(--fond);
   border-radius: 12px;
   box-shadow: var(--ombre);
   animation: apparitionFondu 0.3s ease;
@@ -807,7 +847,7 @@ body.vue-recruteur .btn-telecharger {
   right: 1.5rem;
   font-size: 2rem;
   line-height: 1;
-  color: var(--bleu-nuit);
+  color: var(--texte);
   cursor: pointer;
 }
 
@@ -838,7 +878,7 @@ body.vue-recruteur .btn-telecharger {
   border: none;
   border-radius: 50%;
   background-color: var(--carte);
-  color: var(--bleu-nuit);
+  color: var(--texte);
   font-size: 1.5rem;
   cursor: pointer;
   box-shadow: var(--ombre);
@@ -846,7 +886,7 @@ body.vue-recruteur .btn-telecharger {
 }
 
 .fleche:hover {
-  background-color: var(--beige-doux);
+  background-color: var(--doux);
 }
 
 .fleche-gauche {
@@ -865,4 +905,25 @@ body.vue-recruteur .btn-telecharger {
   .carrousel {
     height: 250px;
   }
+}
+
+/* --- BOUTON MODE SOMBRE --- */
+.nav-actions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+#btn-theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icone-theme {
+  width: 14px;
+  height: 14px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
 }

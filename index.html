@@ -11,7 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Vollkorn:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
 
     <!-- Lien vers ton fichier CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
+
+    <!-- Applique le thème choisi avant l'affichage (évite un flash de la mauvaise couleur) -->
+    <script>
+        try {
+            let theme = localStorage.getItem('theme');
+            if (theme) document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+    </script>
 </head>
 <body>
 
@@ -68,7 +76,10 @@
                 <li><button class="lien-nav" data-page="page-parcours" onclick="changerPage('page-parcours')">Mon Parcours</button></li>
                 <li class="bloc-client"><button class="lien-nav" data-page="page-tarifs" onclick="changerPage('page-tarifs')">Tarifs</button></li>
             </ul>
-            <button class="btn-changer-profil" onclick="changerProfil()">Changer de profil</button>
+            <div class="nav-actions">
+                <button class="btn-changer-profil" id="btn-theme" onclick="changerTheme()"><span class="icone-theme"></span><span class="texte-theme">Foncé</span></button>
+                <button class="btn-changer-profil" onclick="changerProfil()">Changer de profil</button>
+            </div>
         </nav>
 
         <!-- ONGLET 1 : À PROPOS DE MOI -->
@@ -536,6 +547,6 @@
     </div>
 
     <!-- Lien vers ton fichier JS (toujours à la fin du body) -->
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>
