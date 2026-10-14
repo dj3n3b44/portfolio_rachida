@@ -273,3 +273,583 @@ p, li, a {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* --- AFFICHAGE SELON LE PROFIL --- */
+.bloc-visiteur,
+.bloc-client,
+.bloc-recruteur,
+.info-client,
+.info-recruteur {
+  display: none;
+}
+
+body.vue-visiteur .bloc-visiteur,
+body.vue-client .bloc-client,
+body.vue-client .info-client,
+body.vue-recruteur .bloc-recruteur,
+body.vue-recruteur .info-recruteur {
+  display: block;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#creations,
+#contact {
+  scroll-margin-top: 90px;
+}
+
+/* --- PAGES PRINCIPALES (ONGLETS DU HAUT) --- */
+.page-principale {
+  display: none;
+}
+
+.page-principale.active {
+  display: block;
+  animation: apparitionFondu 0.5s ease;
+}
+
+/* --- BARRE DE NAVIGATION --- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.2rem 5%;
+  background-color: var(--creme);
+  border-bottom: 1px solid rgba(10, 17, 40, 0.1);
+}
+
+.nav-logo {
+  font-family: 'Vollkorn', serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--bleu-nuit);
+}
+
+.nav-liens {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lien-nav {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--bleu-nuit);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 4px 0;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.lien-nav:hover {
+  opacity: 1;
+}
+
+.lien-nav.actif {
+  opacity: 1;
+  font-weight: 600;
+  border-bottom-color: var(--bleu-nuit);
+}
+
+.btn-changer-profil {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--bleu-nuit);
+  background: none;
+  border: 1px solid var(--bleu-nuit);
+  border-radius: 50px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-changer-profil:hover {
+  background-color: var(--bleu-nuit);
+  color: var(--creme);
+}
+
+/* --- ÉLÉMENTS COMMUNS --- */
+.a-propos,
+.parcours,
+.tarifs {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5rem 5% 3rem;
+}
+
+.a-propos h2,
+.parcours h2,
+.tarifs h2,
+.contact h2 {
+  font-size: 2.8rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.sur-titre {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.texte-intro {
+  font-size: 1.25rem;
+  max-width: 700px;
+}
+
+.btn-cv {
+  display: inline-block;
+  margin-top: 3rem;
+  padding: 12px 35px;
+  background-color: var(--bleu-nuit);
+  color: var(--creme);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.btn-cv:hover {
+  opacity: 0.85;
+}
+
+/* --- À PROPOS --- */
+.a-propos h3 {
+  font-size: 1.5rem;
+  margin: 3rem 0 1rem;
+}
+
+.grille-services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.carte-service {
+  background-color: var(--beige-doux);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.carte-service h3 {
+  font-size: 1.3rem;
+  margin: 0 0 0.8rem;
+}
+
+.carte-service p {
+  margin: 0;
+}
+
+.etapes-methode {
+  padding-left: 1.2rem;
+}
+
+.etapes-methode li {
+  margin-bottom: 0.8rem;
+}
+
+.valeur-ajoutee {
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  background-color: var(--creme);
+  border-left: 3px solid var(--bleu-nuit);
+  border-radius: 4px;
+}
+
+#creations {
+  padding: 0 5% 4rem;
+}
+
+/* --- PARCOURS : BOUTON CV --- */
+body.vue-recruteur .btn-telecharger {
+  display: inline-block;
+}
+
+.btn-telecharger {
+  margin: 2.5rem 0 1rem;
+  padding: 16px 40px;
+  background-color: var(--bleu-nuit);
+  color: var(--creme);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(10, 17, 40, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.btn-telecharger:hover {
+  transform: translateY(-3px);
+}
+
+/* --- PARCOURS : FRISE CHRONOLOGIQUE --- */
+.frise {
+  position: relative;
+  list-style: none;
+  margin: 4rem 0 0;
+  padding: 0;
+}
+
+.frise::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: rgba(10, 17, 40, 0.2);
+  transform: translateX(-50%);
+}
+
+.etape {
+  position: relative;
+  box-sizing: border-box;
+  width: 50%;
+  padding: 0 3rem 2.5rem 0;
+}
+
+.etape:nth-child(even) {
+  margin-left: 50%;
+  padding: 0 0 2.5rem 3rem;
+}
+
+.etape::before {
+  content: "";
+  position: absolute;
+  top: 1.8rem;
+  right: -8px;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--blanc-casse);
+  border: 2px solid var(--bleu-nuit);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.etape:nth-child(even)::before {
+  right: auto;
+  left: -8px;
+}
+
+.etape:hover::before {
+  background-color: var(--bleu-nuit);
+  transform: scale(1.3);
+}
+
+.carte-etape {
+  background-color: var(--creme);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 1.5rem 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.etape.formation .carte-etape {
+  background-color: var(--beige-doux);
+}
+
+.etape:hover .carte-etape {
+  transform: translateY(-4px);
+  border-color: rgba(10, 17, 40, 0.2);
+  box-shadow: 0 10px 24px rgba(10, 17, 40, 0.1);
+}
+
+.etape-date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.etape-type {
+  float: right;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid rgba(10, 17, 40, 0.3);
+  border-radius: 50px;
+  padding: 2px 10px;
+}
+
+.carte-etape h3 {
+  font-size: 1.25rem;
+  margin: 0.6rem 0 0.2rem;
+}
+
+.etape-lieu {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.carte-etape details {
+  margin-top: 1rem;
+}
+
+.carte-etape summary {
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.carte-etape details ul {
+  margin: 0.8rem 0 0;
+  padding-left: 1.2rem;
+}
+
+/* --- PARCOURS : COMPÉTENCES --- */
+.titre-competences {
+  font-size: 2rem;
+  margin-top: 4rem;
+}
+
+.grille-competences {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grille-competences h4 {
+  font-size: 1.2rem;
+  margin: 0 0 1rem;
+}
+
+.liste-competences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.liste-competences li {
+  background-color: var(--creme);
+  border: 1px solid rgba(10, 17, 40, 0.2);
+  border-radius: 50px;
+  padding: 5px 14px;
+  font-size: 0.9rem;
+}
+
+/* --- TARIFS --- */
+.grille-tarifs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.carte-tarif {
+  background-color: var(--creme);
+  border: 1px solid rgba(10, 17, 40, 0.15);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.carte-tarif h3 {
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+}
+
+.carte-tarif .prix {
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(10, 17, 40, 0.15);
+}
+
+.carte-tarif ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+/* --- CONTACT --- */
+.contact {
+  text-align: center;
+  background-color: var(--beige-doux);
+  padding: 5rem 5%;
+}
+
+.contact .texte-intro {
+  margin: 0 auto;
+}
+
+.liens-reseaux {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 2.5rem;
+}
+
+.liens-reseaux a {
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.liens-reseaux a:hover {
+  border-bottom-color: var(--bleu-nuit);
+}
+
+/* --- MOBILE --- */
+@media (max-width: 800px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .nav-liens {
+    gap: 1.5rem;
+  }
+
+  .a-propos h2,
+  .parcours h2,
+  .tarifs h2,
+  .contact h2 {
+    font-size: 2.2rem;
+  }
+
+  .grille-services,
+  .grille-tarifs,
+  .grille-competences {
+    grid-template-columns: 1fr;
+  }
+
+  .frise::before {
+    left: 8px;
+  }
+
+  .etape,
+  .etape:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    padding: 0 0 2rem 2.5rem;
+  }
+
+  .etape::before,
+  .etape:nth-child(even)::before {
+    left: 0;
+    right: auto;
+  }
+}
+
+/* --- IMAGES DES CARTES PROJETS --- */
+.image-apercu {
+  overflow: hidden;
+}
+
+.img-couverture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- FENÊTRE MODALE --- */
+.modale {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(10, 17, 40, 0.6);
+}
+
+.contenu-modale {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem 3rem;
+  background-color: var(--creme);
+  border-radius: 12px;
+  animation: apparitionFondu 0.3s ease;
+}
+
+.contenu-modale h2 {
+  font-size: 2.2rem;
+  margin: 0.3rem 0 0;
+}
+
+.fermer-modale {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--bleu-nuit);
+  cursor: pointer;
+}
+
+.carrousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  margin: 1.5rem 0;
+  background-color: var(--beige-doux);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#image-modale {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.fleche {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--creme);
+  color: var(--bleu-nuit);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fleche:hover {
+  background-color: var(--blanc-casse);
+}
+
+.fleche-gauche {
+  left: 1rem;
+}
+
+.fleche-droite {
+  right: 1rem;
+}
+
+@media (max-width: 800px) {
+  .contenu-modale {
+    padding: 2rem 1.5rem;
+  }
+
+  .carrousel {
+    height: 250px;
+  }
+}

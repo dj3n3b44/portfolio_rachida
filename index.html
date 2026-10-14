@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rchdaa Design - Portfolio</title>
-    
+    <title>Gloire Rachida TAÏROU - Portfolio</title>
+
     <!-- Importation des typographies de la charte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&family=Vollkorn:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-    
+
     <!-- Lien vers ton fichier CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,11 +17,11 @@
 
     <!-- SECTION 1 : L'ACCUEIL AVEC VIDÉO -->
     <section id="accueil" class="fullscreen">
-        
+
         <video autoplay muted loop playsinline class="bg-video">
             <source src="assets/bg-video.mp4" type="video/mp4">
         </video>
-        
+
         <div class="overlay"></div>
 
         <div class="contenu-accueil">
@@ -34,20 +34,20 @@
     <section id="choix-profil" class="fullscreen hidden">
         <div class="conteneur-profils">
             <h2>Bienvenue, qui êtes-vous ?</h2>
-            
+
             <div class="grille-boutons">
                 <!-- Carte Recruteur -->
                 <div class="carte-profil" onclick="choisirProfil('recruteur')">
                     <h3>Recruteur</h3>
                     <p>Parcours, méthodes de travail et CV détaillé.</p>
                 </div>
-                
+
                 <!-- Carte Client -->
                 <div class="carte-profil" onclick="choisirProfil('client')">
                     <h3>Client</h3>
                     <p>Prestations, tarifs et études de cas sur-mesure.</p>
                 </div>
-                
+
                 <!-- Carte Visiteur -->
                 <div class="carte-profil" onclick="choisirProfil('visiteur')">
                     <h3>Visiteur</h3>
@@ -57,90 +57,479 @@
         </div>
     </section>
 
-    <!-- SECTION 3 : LE PORTFOLIO (Caché au départ) -->
+    <!-- SECTION 3 : LE SITE PRINCIPAL (Caché au départ) -->
     <section id="portfolio-principal" class="hidden">
-        
-        <!-- LE MENU DES ONGLETS -->
-        <div class="menu-onglets">
-            <!-- L'onglet actif par défaut est Projets scolaires -->
-            <button class="onglet actif" onclick="changerOnglet('projets-scolaires')">Projets scolaires</button>
-            <button class="onglet" onclick="changerOnglet('stages')">Stages</button>
-            <button class="onglet" onclick="changerOnglet('projets-clients')">Projets clients</button>
-            <button class="onglet" onclick="changerOnglet('projets-persos')">Projets persos</button>
-        </div>
 
-        <!-- Catégorie : Projets Scolaires (Visible par défaut avec la classe 'active') -->
-        <div class="categorie-portfolio active" id="projets-scolaires">
-            <div class="grille-projets">
-                <!-- On mettra les cartes BTS 1ère et 2ème année ici -->
-            </div>
-        </div>
+        <!-- NAVIGATION PRINCIPALE -->
+        <nav class="navbar">
+            <span class="nav-logo">Gloire Rachida TAÏROU</span>
+            <ul class="nav-liens">
+                <li><button class="lien-nav" data-page="page-apropos" onclick="changerPage('page-apropos')">À propos de moi</button></li>
+                <li><button class="lien-nav" data-page="page-parcours" onclick="changerPage('page-parcours')">Mon Parcours</button></li>
+                <li class="bloc-client"><button class="lien-nav" data-page="page-tarifs" onclick="changerPage('page-tarifs')">Tarifs</button></li>
+            </ul>
+            <button class="btn-changer-profil" onclick="changerProfil()">Changer de profil</button>
+        </nav>
 
-        <!-- Catégorie : Stages -->
-        <div class="categorie-portfolio" id="stages">
-            <div class="grille-projets">
-                <!-- Cartes Numalya et le projet mystère (?) -->
-            </div>
-        </div>
+        <!-- ONGLET 1 : À PROPOS DE MOI -->
+        <section id="page-apropos" class="page-principale">
 
-        <!-- Catégorie : Projets Clients -->
-        <div class="categorie-portfolio" id="projets-clients">
-            <div class="grille-projets">
-                <!-- CARTE : SOLEYADOM -->
-                <article class="carte-galerie" onclick="ouvrirModal('SOLEYADOM')">
-                    <div class="image-apercu">
-                        <!-- L'image du logo pour la couverture -->
-                        <img src="assets/soleyadom-logo.png" alt="Logo SOLEYADOM" class="img-couverture">
+            <div class="a-propos">
+                <h2>Qui est Rachida ?</h2>
+
+                <div class="bloc-visiteur">
+                    <p class="texte-intro">Je m'appelle Gloire Rachida Taïrou, étudiante en BTS Communication au lycée Galilée de Cergy. J'aime donner forme aux idées : une identité visuelle, une affiche, un post qui raconte quelque chose de vrai.</p>
+                    <p>Mon univers se nourrit de musique, de cuisine du monde et d'engagement associatif. J'ai d'ailleurs co-fondé Caritavia, une association humanitaire et environnementale. En parallèle, je propose mes services en communication et design graphique sous le nom de Rchdaa Design.</p>
+                </div>
+
+                <div class="bloc-client">
+                    <p class="sur-titre">Rchdaa Design</p>
+                    <p class="texte-intro">Rchdaa Design accompagne les indépendants, associations et petites entreprises qui veulent une image claire, cohérente et authentique, sans jargon ni formule toute faite.</p>
+
+                    <div class="grille-services">
+                        <article class="carte-service">
+                            <h3>Identité visuelle</h3>
+                            <p>Création de logo, charte graphique et présentation de votre univers de marque.</p>
+                        </article>
+                        <article class="carte-service">
+                            <h3>Supports de communication</h3>
+                            <p>Cartes de visite, flyers, plaquettes commerciales et diaporamas de présentation.</p>
+                        </article>
+                        <article class="carte-service">
+                            <h3>Réseaux sociaux</h3>
+                            <p>Création de contenus et animation de vos comptes, LinkedIn compris.</p>
+                        </article>
+                        <article class="carte-service">
+                            <h3>Appui commercial</h3>
+                            <p>Gestion de CRM (HubSpot), prospection et développement de votre clientèle.</p>
+                        </article>
                     </div>
-                    <h3>SOLEYADOM</h3>
-                </article>
-            </div>
-        </div>
 
-        <!-- Catégorie : Projets Persos -->
-        <div class="categorie-portfolio" id="projets-persos">
-            <div class="grille-projets">
-                <!-- Cirtavia et Hidden souls -->
+                    <h3>Ma méthode</h3>
+                    <ol class="etapes-methode">
+                        <li><strong>Échange</strong> : on parle de votre activité, de vos clients et de vos envies.</li>
+                        <li><strong>Proposition</strong> : je vous présente des pistes créatives et un devis clair.</li>
+                        <li><strong>Création</strong> : on avance ensemble, avec des retours à chaque étape.</li>
+                        <li><strong>Livraison</strong> : vous recevez des fichiers prêts à l'emploi, print et digital.</li>
+                    </ol>
+
+                    <p class="valeur-ajoutee">Ce que vous y gagnez : une interlocutrice unique qui comprend à la fois la création et le terrain commercial. Soleyadom et l'association Maison Soleil me font déjà confiance.</p>
+                </div>
+
+                <div class="bloc-recruteur">
+                    <p class="texte-intro">Étudiante en BTS Communication, je suis dynamique, à l'aise à l'oral et j'aime mettre mes compétences relationnelles et créatives au service d'une équipe.</p>
+
+                    <div class="grille-services">
+                        <article class="carte-service">
+                            <h3>Aisance relationnelle</h3>
+                            <p>Accueil, relation client et prospection : j'aime aller vers les autres et les écouter.</p>
+                        </article>
+                        <article class="carte-service">
+                            <h3>Organisation et rigueur</h3>
+                            <p>Coordination d'événements, gestion administrative, suivi CRM : je suis ponctuelle et structurée.</p>
+                        </article>
+                        <article class="carte-service">
+                            <h3>Polyvalence créative</h3>
+                            <p>De la charte graphique aux réseaux sociaux, je maîtrise la Suite Adobe et Canva.</p>
+                        </article>
+                        <article class="carte-service">
+                            <h3>Engagement</h3>
+                            <p>Co-fondatrice de Caritavia et bénévole à l'AFEV : je m'investis pleinement dans ce que j'entreprends.</p>
+                        </article>
+                    </div>
+
+                    <p class="valeur-ajoutee">Mon activité freelance Rchdaa Design (Soleyadom, Maison Soleil) a été une expérience très formatrice : gérer des clients réels m'a appris l'autonomie et le sens des responsabilités.</p>
+                </div>
+
+                <a href="#creations" class="btn-cv">Découvrir mes créations</a>
             </div>
-        </div>
+
+            <!-- LE PORTFOLIO -->
+            <div id="creations">
+
+                <div class="menu-onglets">
+                    <button class="onglet actif" onclick="changerOnglet('projets-scolaires')">Projets scolaires</button>
+                    <button class="onglet" onclick="changerOnglet('stages')">Stages</button>
+                    <button class="onglet" onclick="changerOnglet('projets-clients')">Projets clients</button>
+                    <button class="onglet" onclick="changerOnglet('projets-persos')">Projets persos</button>
+                </div>
+
+                <div class="categorie-portfolio active" id="projets-scolaires">
+                    <div class="grille-projets">
+                        <article class="carte-galerie" onclick="ouvrirModal('Forum de Vauréal')">
+                            <div class="image-apercu">
+                                <img src="assets/forum-vaureal.png" alt="Forum de Vauréal" class="img-couverture">
+                            </div>
+                            <h3>Forum de Vauréal</h3>
+                        </article>
+                        <article class="carte-galerie" onclick="ouvrirModal('Lycée Galilée')">
+                            <div class="image-apercu">
+                                <img src="assets/lycee-galilee.png" alt="Lycée Galilée" class="img-couverture">
+                            </div>
+                            <h3>Lycée Galilée</h3>
+                        </article>
+                        <article class="carte-galerie" onclick="ouvrirModal('Ultrabrite')">
+                            <div class="image-apercu">
+                                <img src="assets/ultrabrite.png" alt="Ultrabrite" class="img-couverture">
+                            </div>
+                            <h3>Ultrabrite</h3>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="categorie-portfolio" id="stages">
+                    <div class="grille-projets">
+                        <article class="carte-galerie" onclick="ouvrirModal('Numelya')">
+                            <div class="image-apercu">
+                                <img src="assets/numelya.png" alt="Numelya" class="img-couverture">
+                            </div>
+                            <h3>Numelya</h3>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="categorie-portfolio" id="projets-clients">
+                    <div class="grille-projets">
+                        <article class="carte-galerie" onclick="ouvrirModal('SOLEYADOM')">
+                            <div class="image-apercu">
+                                <img src="assets/soleyadom-logo.png" alt="Logo SOLEYADOM" class="img-couverture">
+                            </div>
+                            <h3>SOLEYADOM</h3>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="categorie-portfolio" id="projets-persos">
+                    <div class="grille-projets">
+                        <article class="carte-galerie" onclick="ouvrirModal('Caritavia')">
+                            <div class="image-apercu">
+                                <img src="assets/caritavia.png" alt="Caritavia" class="img-couverture">
+                            </div>
+                            <h3>Caritavia</h3>
+                        </article>
+                        <article class="carte-galerie" onclick="ouvrirModal('Éternelle Harmonie')">
+                            <div class="image-apercu">
+                                <img src="assets/eternelle-harmonie.png" alt="Éternelle Harmonie" class="img-couverture">
+                            </div>
+                            <h3>Éternelle Harmonie</h3>
+                        </article>
+                        <article class="carte-galerie" onclick="ouvrirModal('Hidden Souls')">
+                            <div class="image-apercu">
+                                <img src="assets/hidden-souls.png" alt="Hidden Souls" class="img-couverture">
+                            </div>
+                            <h3>Hidden Souls</h3>
+                        </article>
+                        <article class="carte-galerie" onclick="ouvrirModal('Rchdaa Design')">
+                            <div class="image-apercu">
+                                <img src="assets/rchdaa-design.png" alt="Rchdaa Design" class="img-couverture">
+                            </div>
+                            <h3>Rchdaa Design</h3>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ONGLET 2 : MON PARCOURS -->
+        <section id="page-parcours" class="page-principale">
+            <div class="parcours">
+                <h2>Mon Parcours</h2>
+                <p class="texte-intro">Formations, expériences et engagements : les étapes qui ont construit mon regard.</p>
+
+                <a href="assets/cv.pdf" download class="btn-telecharger bloc-recruteur">Télécharger mon CV (PDF)</a>
+
+                <ol class="frise">
+                    <li class="etape experience">
+                        <div class="carte-etape">
+                            <span class="etape-date">Depuis juillet 2026</span>
+                            <span class="etape-type">Freelance</span>
+                            <h3>Chargée de mission communication et commercial</h3>
+                            <p class="etape-lieu">Soleyadom</p>
+                            <details>
+                                <summary>Voir les missions</summary>
+                                <ul>
+                                    <li>Charte graphique et identité visuelle</li>
+                                    <li>Flyers, cartes de visite, plaquettes et diaporamas commerciaux</li>
+                                    <li>Création de contenu et gestion du CRM HubSpot</li>
+                                    <li>Prospection et développement de la clientèle</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="etape experience">
+                        <div class="carte-etape">
+                            <span class="etape-date">Depuis juillet 2026</span>
+                            <span class="etape-type">Freelance</span>
+                            <h3>Chargée de mission administratif et communication</h3>
+                            <p class="etape-lieu">Maison Soleil (association)</p>
+                            <details>
+                                <summary>Voir les missions</summary>
+                                <ul>
+                                    <li>Gestion administrative et communication de l'association</li>
+                                    <li>Création de contenu, gestion du CRM et prospection</li>
+                                    <li>Supports de communication et charte graphique</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="etape experience">
+                        <div class="carte-etape">
+                            <span class="etape-date">Mai – juillet 2026</span>
+                            <span class="etape-type">Stage</span>
+                            <h3>Chargée de communication</h3>
+                            <p class="etape-lieu">Numelya</p>
+                            <details>
+                                <summary>Voir les missions</summary>
+                                <ul>
+                                    <li>Organisation et coordination d'événements professionnels</li>
+                                    <li>Gestion et animation des réseaux sociaux</li>
+                                    <li>Cartes de visite, dépliants, kakémonos, goodies</li>
+                                    <li>Couverture photo des événements</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="etape experience">
+                        <div class="carte-etape">
+                            <span class="etape-date">Mai – juillet 2026</span>
+                            <span class="etape-type">Stage</span>
+                            <h3>Chargée de communication LinkedIn</h3>
+                            <p class="etape-lieu">Dynabuy Fin'Expert, Enghien-les-Bains</p>
+                            <details>
+                                <summary>Voir les missions</summary>
+                                <ul>
+                                    <li>Gestion de la page LinkedIn de l'entreprise</li>
+                                    <li>Création de posts LinkedIn</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="etape engagement">
+                        <div class="carte-etape">
+                            <span class="etape-date">Depuis 2026</span>
+                            <span class="etape-type">Engagement</span>
+                            <h3>Co-fondatrice</h3>
+                            <p class="etape-lieu">Caritavia, association humanitaire et environnementale</p>
+                            <details>
+                                <summary>Voir les missions</summary>
+                                <ul>
+                                    <li>Création et gestion administrative de l'association</li>
+                                    <li>Maraudes, collectes de dons et actions solidaires</li>
+                                    <li>Pilotage des projets humanitaires et environnementaux</li>
+                                    <li>Identité visuelle, site web et communication globale</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="etape experience">
+                        <div class="carte-etape">
+                            <span class="etape-date">Janvier 2026</span>
+                            <span class="etape-type">Mission</span>
+                            <h3>Hôtesse d'accueil</h3>
+                            <p class="etape-lieu">Salon de l'Étudiant</p>
+                            <details>
+                                <summary>Voir les missions</summary>
+                                <ul>
+                                    <li>Contrôle des QR codes à l'entrée</li>
+                                    <li>Accueil et orientation des visiteurs</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="etape formation">
+                        <div class="carte-etape">
+                            <span class="etape-date">2025 – 2027</span>
+                            <span class="etape-type">Formation</span>
+                            <h3>BTS Communication</h3>
+                            <p class="etape-lieu">Lycée Galilée, Cergy (en cours)</p>
+                        </div>
+                    </li>
+
+                    <li class="etape formation">
+                        <div class="carte-etape">
+                            <span class="etape-date">2024 – 2025</span>
+                            <span class="etape-type">Formation</span>
+                            <h3>Baccalauréat STMG, spécialité RH</h3>
+                            <p class="etape-lieu">Lycée Galilée, Cergy (mention Bien)</p>
+                        </div>
+                    </li>
+
+                    <li class="etape engagement">
+                        <div class="carte-etape">
+                            <span class="etape-date">2024 – 2025</span>
+                            <span class="etape-type">Bénévolat</span>
+                            <h3>Accompagnement scolaire</h3>
+                            <p class="etape-lieu">AFEV, 6 mois</p>
+                            <details>
+                                <summary>Voir les missions</summary>
+                                <ul>
+                                    <li>Aide aux devoirs d'enfants du primaire</li>
+                                    <li>Animation de jeux et d'activités éducatives</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </li>
+
+                    <li class="etape formation">
+                        <div class="carte-etape">
+                            <span class="etape-date">2021</span>
+                            <span class="etape-type">Certificat</span>
+                            <h3>PSC1, Premiers secours</h3>
+                            <p class="etape-lieu">Collège La Bruyère, Osny</p>
+                        </div>
+                    </li>
+
+                    <li class="etape experience">
+                        <div class="carte-etape">
+                            <span class="etape-date">Décembre 2021</span>
+                            <span class="etape-type">Stage de 3ème</span>
+                            <h3>Équipière polyvalente</h3>
+                            <p class="etape-lieu">SITIS Meulan, épicerie</p>
+                            <details>
+                                <summary>Voir les missions</summary>
+                                <ul>
+                                    <li>Accueil et orientation des clients</li>
+                                    <li>Mise en valeur de l'espace de vente</li>
+                                    <li>Encaissements et opérations quotidiennes</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </li>
+                </ol>
+
+                <h3 class="titre-competences">Compétences</h3>
+                <div class="grille-competences">
+                    <div>
+                        <h4>Outils</h4>
+                        <ul class="liste-competences">
+                            <li>Photoshop</li>
+                            <li>InDesign</li>
+                            <li>Illustrator</li>
+                            <li>Canva</li>
+                            <li>HubSpot</li>
+                            <li>Trello</li>
+                            <li>Word</li>
+                            <li>PowerPoint</li>
+                            <li>LibreOffice</li>
+                            <li>Excel (initiation)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Relationnel</h4>
+                        <ul class="liste-competences">
+                            <li>Communication</li>
+                            <li>Relation client</li>
+                            <li>Prospection</li>
+                            <li>Accueil</li>
+                            <li>Travail en équipe</li>
+                            <li>Organisation</li>
+                            <li>Rigueur</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Langues</h4>
+                        <ul class="liste-competences">
+                            <li>Français (natif)</li>
+                            <li>Anglais (intermédiaire)</li>
+                            <li>Espagnol (intermédiaire)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ONGLET 3 : TARIFS (client uniquement) -->
+        <section id="page-tarifs" class="page-principale">
+            <div class="tarifs">
+                <p class="sur-titre">Tarifs</p>
+                <h2>Des formules claires</h2>
+                <p class="texte-intro">Chaque projet est unique : ces prix sont indicatifs et un devis détaillé vous est envoyé après notre premier échange.</p>
+
+                <div class="grille-tarifs">
+                    <article class="carte-tarif">
+                        <h3>Identité visuelle</h3>
+                        <p class="prix">À partir de XX €</p>
+                        <ul>
+                            <li>Logo et ses déclinaisons</li>
+                            <li>Palette de couleurs et typographies</li>
+                            <li>Mini charte graphique</li>
+                        </ul>
+                    </article>
+                    <article class="carte-tarif">
+                        <h3>Supports print</h3>
+                        <p class="prix">À partir de XX €</p>
+                        <ul>
+                            <li>Carte de visite, flyer ou affiche</li>
+                            <li>Plaquette commerciale</li>
+                            <li>Fichiers prêts pour l'imprimeur</li>
+                        </ul>
+                    </article>
+                    <article class="carte-tarif">
+                        <h3>Réseaux sociaux</h3>
+                        <p class="prix">À partir de XX € / mois</p>
+                        <ul>
+                            <li>Visuels et séries éditoriales</li>
+                            <li>Vidéos courtes</li>
+                            <li>Templates réutilisables</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <a href="#contact" class="btn-cv">Demander un devis</a>
+            </div>
+        </section>
+
+        <!-- CONTACT (en bas de chaque onglet) -->
+        <section id="contact" class="contact">
+            <p class="sur-titre">Contact</p>
+            <h2>Écrivons la suite ensemble</h2>
+
+            <p class="texte-intro bloc-visiteur">Une question, une envie d'échanger sur mon univers ? Je serai ravie de vous lire.</p>
+            <p class="texte-intro bloc-client">Parlez-moi de votre projet : je vous réponds sous 48 h avec une première proposition.</p>
+            <p class="texte-intro bloc-recruteur">Mon profil vous intéresse ? Contactez-moi pour un stage, une alternance ou un poste.</p>
+
+            <a href="mailto:gloiretairou7@gmail.com" class="btn-cv">gloiretairou7@gmail.com</a>
+
+            <ul class="liens-reseaux">
+                <li><a href="https://www.linkedin.com/in/rachida-tairou-786a55366" target="_blank">LinkedIn</a></li>
+                <li><a href="#" target="_blank">Instagram</a></li>
+            </ul>
+        </section>
 
     </section>
 
     <!-- SECTION 4 : LA FENÊTRE MODALE -->
-    <div id="fenetre-modale" class="modale hidden">
-        <div class="contenu-modale">
-            <!-- Le bouton pour fermer (la petite croix) -->
+    <!-- Le contenu est rempli par ouvrirModal() à partir de l'objet "projets" dans script.js -->
+    <div id="fenetre-modale" class="modale hidden" onclick="fermerModal()">
+        <div class="contenu-modale" onclick="event.stopPropagation()">
             <span class="fermer-modale" onclick="fermerModal()">×</span>
-            
-            <h2 id="titre-modale">SOLEYADOM</h2>
-            
-            <div class="image-detail">
-                <!-- L'image en grand format viendra ici -->
+
+            <p class="sur-titre" id="categorie-modale"></p>
+            <h2 id="titre-modale"></h2>
+
+            <div class="carrousel">
+                <button class="fleche fleche-gauche" onclick="changerImage(-1)">‹</button>
+                <img id="image-modale" src="" alt="">
+                <button class="fleche fleche-droite" onclick="changerImage(1)">›</button>
             </div>
-            
-            <p class="texte-courant">Création d'une identité visuelle complète et déclinaison sur de multiples supports de communication, imprimés et digitaux.</p>
-            
-            <!-- Les infos conditionnelles pour le Client -->
+
+            <p id="description-modale"></p>
+
             <div class="info-client">
                 <p class="texte-courant">Livrables du projet :</p>
-                <ul>
-                    <li>Identité visuelle : Création du nouveau logo.</li>
-                    <li>Supports Print : 1 carte de visite et 2 flyers.</li>
-                    <li>Plaquettes commerciales : Plaquettes "Pourquoi choisir Soleyadom", offres B2B Ménage, et présentation aide à domicile.</li>
-                    <li>Diaporamas : Présentation de la charte graphique et du projet newsletter.</li>
-                    <li>Réseaux Sociaux : 11 contenus (vidéo "La patience", posts LinkedIn, affiches, et séries éditoriales).</li>
-                </ul>
+                <ul id="liste-client"></ul>
             </div>
-            
-            <!-- Les infos conditionnelles pour le Recruteur -->
+
             <div class="info-recruteur">
                 <p class="texte-courant">Compétences appliquées :</p>
-                <ul>
-                    <li>Branding : Conception de logo et présentation de charte graphique.</li>
-                    <li>Édition et Print : Mise en page de 4 plaquettes commerciales, cartes de visite et flyers.</li>
-                    <li>Création de contenu : Formats digitaux variés, storytelling (Épisode humain en mots) et montage vidéo.</li>
-                    <li>Stratégie de communication : Adaptation du discours visuel pour le B2B et le B2C.</li>
-                </ul>
+                <ul id="liste-recruteur"></ul>
             </div>
         </div>
     </div>
